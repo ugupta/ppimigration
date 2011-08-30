@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="configurationLocator" class="org.mifos.framework.util.ConfigurationLocator"/>
+
+    <bean id="applicationCustomProperties" factory-bean="configurationLocator" factory-method="getSpringFilePath">
+        <constructor-arg value="applicationConfiguration.custom.properties"/>
+    </bean>
+
+    <bean id="customProperties" factory-bean="configurationLocator" factory-method="getSpringFilePath">
+        <constructor-arg value="local.properties"/>
+    </bean>
+
+    <bean id="mainPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:org/mifos/config/resources/mainDatabase.properties</value>
+                <ref bean="customProperties"/>
+                <value>classpath*:org/mifos/config/resources/applicationConfiguration.default.properties</value>
+                <ref bean="applicationCustomProperties"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	
+	
+	<class name="org.mifos.customers.surveys.business.SurveyResponse" table="survey_response">
+		<id name="responseId" column="response_id" type="integer" unsaved-value="0" access="field">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="instance" column="instance_id" access="field" cascade="evict" not-null="true"/>
+		<many-to-one name="surveyQuestion" column="survey_question_id" access="field" cascade="evict" not-null="true"/>
+		<property name="freetextValue" column="freetext_value"/>
+		<property name="dateValue" column="date_value"/>
+		<property name="numberValue" column="number_value"/>
+		<property name="multiSelectValue" column="multi_select_value"/>
+		<many-to-one name="choiceValue" column="choice_value" cascade="evict" access="field"/>
+	</class>
+</hibernate-mapping>

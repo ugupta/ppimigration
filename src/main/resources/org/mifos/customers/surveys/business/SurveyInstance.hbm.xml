@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="org.mifos.customers.surveys.business.SurveyInstance" table="survey_instance">
+		<id name="instanceId" column="instance_id" type="integer" unsaved-value="0" access="field">
+			<generator class="native" />
+		</id>
+		<many-to-one name="survey" column="survey_id" access="field" />
+		<property name="officer" column="officer_id" access="field"/>
+		<property name="creator" column="creating_officer_id" access="field"/>
+		<property name="customer" column="customer_id" access="field" />
+		<property name="account" column="account_id" access="field" />
+		<property name="dateConducted" column="date_conducted" type="date"/>
+		<property name="completedStatus" column="completed_status" type="integer"/>
+		
+		<set name="surveyResponses" table="survey_response" cascade="evict" inverse="true">
+			<key column="instance_id" />
+			<one-to-many class="org.mifos.customers.surveys.business.SurveyResponse" />
+		</set>
+		
+		<joined-subclass table="ppi_survey_instance" name="org.mifos.customers.ppi.business.PPISurveyInstance">
+			<key column="instance_id"/>
+			<property name="bottomHalfBelowPovertyLinePercent" column="bottom_half_below"/>
+			<property name="topHalfBelowPovertyLinePercent" column="top_half_below"/>
+		</joined-subclass>
+	</class>	
+</hibernate-mapping>

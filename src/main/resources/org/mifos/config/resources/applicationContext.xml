@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <import resource="classpath*:org/mifos/config/resources/persistenceContext.xml" />
+    <import resource="classpath*:org/mifos/config/resources/dataSourceContext.xml" />
+
+    <bean id="questionnaireMigrationMapper" class="org.mifos.application.questionnaire.migration.mappers.QuestionnaireMigrationMapperImpl"/>
+    <bean id="questionnaireMigration" class="org.mifos.application.questionnaire.migration.QuestionnaireMigration" />
+    <bean id="migrationScript" class="org.mifos.ppimigration.MigrationScript" />
+
+    <!-- Dummy beans -->
+    <bean name="auditLogService" class="org.mifos.framework.components.audit.business.service.AuditLogServiceImpl"/>
+    <bean name="qgFlowsService" class="org.mifos.platform.questionnaire.QGFlowsServiceImpl" />
+</beans>

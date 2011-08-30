@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <mapping resource="org/mifos/customers/surveys/business/Question.hbm.xml" />
+        <mapping resource="org/mifos/customers/surveys/business/QuestionChoice.hbm.xml" />
+        <mapping resource="org/mifos/customers/surveys/business/Survey.hbm.xml" />
+        <mapping resource="org/mifos/customers/surveys/business/SurveyInstance.hbm.xml" />
+        <mapping resource="org/mifos/customers/surveys/business/SurveyQuestion.hbm.xml" />
+        <mapping resource="org/mifos/customers/surveys/business/SurveyResponse.hbm.xml" />
+        <mapping class="org.mifos.framework.business.EntityMaster" />
+    </session-factory>
+</hibernate-configuration>

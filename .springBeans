@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.5.2.201102280943-SR3]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/resources/org/mifos/config/resources/applicationContext.xml</config>
+		<config>src/main/resources/org/mifos/config/resources/dataSourceContext.xml</config>
+		<config>src/main/resources/org/mifos/config/resources/persistenceContext.xml</config>
+		<config>src/main/resources/org/mifos/config/resources/propertyConfigurer.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
