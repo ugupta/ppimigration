@@ -57,8 +57,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class QuestionnaireMigrationMapperImpl implements QuestionnaireMigrationMapper {
 
-    private static final String DEFAULT_SECTION_NAME = "PPI India 2008";
-    private static final String DEFAULT_SURVEY_NAME = "PPI India 2008";
+    private static final String DEFAULT_SECTION_NAME = "PPI India 2009";
+    private static final String DEFAULT_SURVEY_NAME = "PPI India 2009";
     private Map<SurveyType, String> surveyTypeToSourceMap;
     private Map<AnswerType, QuestionType> answerToQuestionType;
 
@@ -188,7 +188,7 @@ public class QuestionnaireMigrationMapperImpl implements QuestionnaireMigrationM
         questionDto.setText("Date Survey Was Taken");
         questionDto.setMandatory(true);
         questionDto.setActive(true);
-        questionDto.setNickname("ppi_india_2008_survey_date");
+        questionDto.setNickname("ppi_india_2009_survey_date");
         questionDto.setOrder(0);
         questionDto.setType(answerToQuestionType.get(AnswerType.DATE));
         sectionDto.addQuestion(questionDto);
